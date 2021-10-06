@@ -31,14 +31,14 @@ deaths.est <- deaths.est %>%
   gather(Fit.Bound, Deaths, fit, lwr, upr)
 deaths.est$Deaths <- round(as.numeric(deaths.est$Deaths))
 
-write.csv(deaths.est, 'Data/deaths_est.csv', row.names = FALSE)
+write.csv(deaths.est, 'Data/deaths_est_linear.csv', row.names = FALSE)
 
-# Rearrange for easier transfer to supplementary material
-deaths.est <- deaths.est %>%
-  spread(Fit.Bound, Deaths)
-deaths.est$Gender <- factor(deaths.est$Gender, levels = gender)
-deaths.est$Age.Group <- factor(deaths.est$Age.Group, levels = age.group)
-deaths.est <- deaths.est %>%
-  arrange(Gender, Age.Group)
-
-write.csv(deaths.est, 'Manuscript Tables/Death Estimates (2020).csv', row.names = FALSE)
+# # Rearrange for easier transfer to supplementary material
+# deaths.est <- deaths.est %>%
+#   spread(Fit.Bound, Deaths)
+# deaths.est$Gender <- factor(deaths.est$Gender, levels = gender)
+# deaths.est$Age.Group <- factor(deaths.est$Age.Group, levels = age.group)
+# deaths.est <- deaths.est %>%
+#   arrange(Gender, Age.Group)
+# 
+# write.csv(deaths.est, 'Manuscript Tables/Death Estimates (2020).csv', row.names = FALSE)

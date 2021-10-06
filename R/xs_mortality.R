@@ -84,9 +84,11 @@ total.xs.mort.effect <- xs.mortality.effect %>%
 ggplot(total.xs.mort.effect, aes(x = Age.Group, y = fit, fill = Effect)) +
   geom_bar(stat = 'identity', position=position_dodge()) +
   geom_errorbar(aes(ymin = lwr, ymax = upr), width = .2, position = position_dodge(.9)) +
-  labs(title = 'Excess Mortality attributed to the direct vs indirect effects of COVID-19 \nby Age Group for the Total Population of England and Wales in 2020', y = 'Deaths', x = 'Age Group') +
+  # labs(title = 'Excess Mortality attributed to the direct vs indirect effects of COVID-19 \nby Age Group for the Total Population of England and Wales in 2020', y = 'Deaths', x = 'Age Group') +
+  labs(y = 'Deaths', x = 'Age Group') +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 270, vjust = 0.5))
+ggsave('New Figures/xs_mortality_effects_total.png')
 
 male.xs.mort.effect <- xs.mortality.effect %>%
   filter(Gender == 'Male')

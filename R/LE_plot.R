@@ -53,7 +53,10 @@ LE.diff.combine <- merge(LE.diff.combine, LE.diff.net, by = 'Gender')
 ggplot(LE.diff.combine, aes(x = Gender, y = fit, fill = Effects)) +
   geom_bar(stat = 'identity') +
   geom_errorbar(aes(ymin = lwr, ymax = upr), width = 0.5) +
-  labs(title = 'Decrease in Life Expectancy attributed to direct vs indirect effects of COVID-19 \nin England and Wales',
-       x = 'Sex',
+  # labs(title = 'Decrease in Life Expectancy attributed to direct vs indirect effects of COVID-19 \nin England and Wales',
+  #      x = 'Sex',
+  #      y = 'Decrease in Life Expectancy (years)') +
+  labs(x = 'Sex',
        y = 'Decrease in Life Expectancy (years)') +
   theme_minimal()
+ggsave('New Figures/decrease_in_LE_effect.png')
